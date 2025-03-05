@@ -15,7 +15,8 @@ func main() {
 
 	//
 	engine := msgo.New()
-	engine.Add("/", func(w http.ResponseWriter, r *http.Request) {
+	g := engine.Group("user")
+	g.Add("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "%s 欢迎来到码神之路GoWeb教程", "Chris.Zhang")
 	})
 	engine.Run()
